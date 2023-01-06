@@ -7,20 +7,21 @@ function App() {
   const [state, setState] = useState(["New Todo", "New Todo", "New Todo"]);
   const [data, setData] = useState(0);
   const AddTodo = useCallback(() => {
-    setState((x) => [...x, "New Todo"]);
-  }, [state]);
+    setState((x) => [...x, "New Todo"]); //this bock of code make and execute when it is demand
+  }, [state]); //on the bases of condition
 
   const Increment = useCallback(() => {
-    setData((x) => x + 1);
-  }, [data]);
+    setData((x) => x + 1); //this bock of code make and execute when it is demand
+  }, [data]); //on the bases of condition
 
   const Decrement = useCallback(() => {
-    setData((x) => x - 1);
-  }, [data]);
+    setData((x) => x - 1); //this bock of code make and execute when it is demand
+  }, [data]); //on the bases of condition
 
   const multipleValue = useMemo(() => {
-    return data * 10;
-  }, [data]);
+    return data * 10; //present here. but, execute when it is demand
+  }, [data]); //on the bases of condition
+
   return (
     <div className="App">
       <h1>Count: {data}</h1>
@@ -36,7 +37,8 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <Todo item={state} />
+          <Todo item={state} />{" "}
+          {/* it will render when any props will be change */}
         </tbody>
       </table>
     </div>
